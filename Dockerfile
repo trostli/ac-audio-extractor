@@ -3,18 +3,18 @@ FROM python:3.6.8-stretch
 # Common requirements
 RUN apt-get update \
     && apt-get install -y \
-        libyaml-0-2 \ 
-        libfftw3-3 \ 
-        libtag1v5 \ 
+        libyaml-0-2 \
+        libfftw3-3 \
+        libtag1v5 \
         libsamplerate0 \
-        libavcodec57 \ 
-        libavformat57 \ 
+        libavcodec57 \
+        libavformat57 \
         libavutil55 \
-        libavresample3 \ 
-        python3 \ 
-        python3-numpy \ 
-        libpython3.5 \ 
-        python3-yaml \ 
+        libavresample3 \
+        python3 \
+        python3-numpy \
+        libpython3.5 \
+        python3-yaml \
         python3-six \
         libsndfile1 \
         pkg-config \
@@ -23,7 +23,7 @@ RUN apt-get update \
 
 
 # Python dependencies (needed for essentia)
-RUN pip install numpy==1.14.5
+RUN pip install numpy==1.15
 
 
 # Gaia
@@ -47,7 +47,7 @@ RUN apt-get update \
 # Essentia (checkout freesound_extractor_update branch at specific commit)
 RUN apt-get update \
     && apt-get install -y \
-        build-essential \ 
+        build-essential \
         libyaml-dev \
         libfftw3-dev \
         libavcodec-dev \
@@ -60,8 +60,8 @@ RUN apt-get update \
         python3-numpy-dev \
         git \
     && mkdir /essentia && cd /essentia && git clone https://github.com/MTG/essentia.git \
-    && cd /essentia/essentia && git checkout 0ddaedd3ba8988ae759cc746ff7e4ad995dcfeae \ 
-    && ./waf configure --with-examples --with-python --with-gaia \
+    && cd /essentia/essentia && git checkout 0ddaedd3ba8988ae759cc746ff7e4ad995dcfeae \
+    && ./waf configure --build-static --with-examples --with-python --with-gaia \
     && ./waf && ./waf install && ldconfig \
     &&  apt-get remove -y \
         build-essential \
