@@ -89,7 +89,7 @@ RUN pip install SoundFile==0.10.2 librosa==0.8.0 scipy==1.1.0 ffmpeg-python==0.1
 RUN pip install rdflib==4.2.2 rdflib-jsonld==0.4.0 PyLD==1.0.3
 
 # Install version 0.4 (commit be443e54f5b8865d7a055e438545f139899d17bc) of timbral models
-RUN git clone https://github.com/AudioCommons/timbral_models.git && cd timbral_models && git checkout be443e54f5b8865d7a055e438545f139899d17bc && python setup.py install  # Using commit corresponding to v0.5 (D5.8)
+RUN git clone https://github.com/AudioCommons/timbral_models.git && cd timbral_models && git checkout e4045c2862d783a5870c562e053509c03e33b5d4 && python setup.py install  # Using commit corresponding to v0.5 (D5.8)
 
 # Add high-level models and music extractor configuration
 RUN mkdir -p models
