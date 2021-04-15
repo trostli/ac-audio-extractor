@@ -85,7 +85,7 @@ RUN apt-get update \
 RUN apt-get update && apt-get install -y ffmpeg
 
 # Extra python dependencies
-RUN pip install SoundFile==0.10.2 librosa==0.6.1 scipy==1.1.0 ffmpeg-python==0.1.17
+RUN pip install SoundFile==0.10.2 librosa==0.8.0 scipy==1.1.0 ffmpeg-python==0.1.17
 RUN pip install rdflib==4.2.2 rdflib-jsonld==0.4.0 PyLD==1.0.3
 
 # Install version 0.4 (commit be443e54f5b8865d7a055e438545f139899d17bc) of timbral models
